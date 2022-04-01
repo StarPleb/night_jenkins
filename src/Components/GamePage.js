@@ -5,7 +5,6 @@ export default function GamePage() {
 
     const [map, setMap] = useState([[]])
     const [tokens, setTokens] = useState([[]])
-    const [counter, setCounter] = useState(0)
     const [rows, setRows] = useState(15)
     const [columns, setColumns] = useState(15)
 
@@ -13,10 +12,6 @@ export default function GamePage() {
         console.log("Hello gaming world!")
         setMap(init_map(rows, columns))
         setTokens(init_tokens(rows, columns))
-// Add event listener to table
-//         const el = document.getElementById("outside");
-//         el.addEventListener("click", modifyText, false);
-//        
     }, [])
 
     function init_map(rows, columns){
@@ -48,16 +43,8 @@ export default function GamePage() {
         return temp
     }
 
-    function modifyText() {
-        const t2 = document.getElementById("t2");
-        if (t2.firstChild.nodeValue === "three") {
-            t2.firstChild.nodeValue = "two";
-        } else {
-            t2.firstChild.nodeValue = "three";
-        }
-    }
-
     function modifyCell(e) {
+        //onClick event listener for each cell.
         let type = e.target.className
         console.log("Hey world!", e.target)
         if(type === "Cell-alive"){
@@ -69,9 +56,7 @@ export default function GamePage() {
 
         e.target.className = type
     }
-
-// Add event listener to table
-
+    
     const map_array_mapped = map.map((row, rowIdx)=>{
         let new_index_array = []
         return (

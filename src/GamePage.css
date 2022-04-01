@@ -5,10 +5,11 @@
     }
 }
 
-.Login-page {
+.Game-page{
     background-color: white;
     display: flex;
     height: 100vh;
+    width: 100vw;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -24,7 +25,16 @@
     flex-direction: row;
 }
 
-.Grid-cell {
+.Cell-alive {
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+    width: 25px;
+    height: 25px;
+    color: black;
+}
+
+.Cell-dead {
     border-style: solid;
     border-color: black;
     border-width: thin;

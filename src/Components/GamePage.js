@@ -6,15 +6,17 @@ export default function GamePage() {
     const [map, setMap] = useState([[]])
     const [tokens, setTokens] = useState([[]])
     const [counter, setCounter] = useState(0)
+    const [rows, setRows] = useState(15)
+    const [columns, setColumns] = useState(15)
 
     useEffect(()=>{
         console.log("Hello gaming world!")
-        setMap(init_map(15, 15))
-        setTokens(init_tokens(15, 15))
+        setMap(init_map(rows, columns))
+        setTokens(init_tokens(rows, columns))
 // Add event listener to table
-        const el = document.getElementById("outside");
-        el.addEventListener("click", modifyText, false);
-        
+//         const el = document.getElementById("outside");
+//         el.addEventListener("click", modifyText, false);
+//        
     }, [])
 
     function init_map(rows, columns){
@@ -70,14 +72,14 @@ export default function GamePage() {
 
 // Add event listener to table
 
-    const map_array_mapped = map.map((row, index)=>{
+    const map_array_mapped = map.map((row, rowIdx)=>{
         let new_index_array = []
         return (
             <div className={"Grid-row"}>
-                {row.map((column, idx)=>{
-                    let new_index = index*idx + idx
+                {row.map((column, colIdx)=>{
+                    let new_index = rowIdx*rows + colIdx
                     new_index_array.push(new_index)
-                    console.log(index, idx)
+                    console.log(new_index)
                     return (
                         <div className={"Cell-dead"} id={`${new_index}`} onClick={modifyCell}/>
                     )
@@ -89,13 +91,9 @@ export default function GamePage() {
 
     return(
         <div className={"Game-page"}>
-            <h1>Let's play!</h1>
+            <h1>Hello world!</h1>
             <div className={"Grid-view"}>
                 {map_array_mapped}
             </div>
-            <table id="outside">
-                <tr><td id="t1">one</td></tr>
-                <tr><td id="t2">two</td></tr>
-            </table>
         </div>
     );}

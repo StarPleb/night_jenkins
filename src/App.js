@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, BrowserRouterProps } from 'react-router-dom';
 import {useState, useEffect} from "react";
 import SignInPage from "./Components/SignInPage";
 import GamePage from "./Components/GamePage";

@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="52cf245a-b149-4e58-880b-7acb1d91f6c5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.night_jenkins.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.night_jenkins.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/GamePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/GamePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/SignInPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/SignInPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +26,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\JetBrains Rider 2021.3.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -35,6 +39,7 @@
       <updated>1648831458267</updated>
       <workItem from="1648831461890" duration="392000" />
       <workItem from="1648831886521" duration="1732000" />
+      <workItem from="1649436694105" duration="4011000" />
     </task>
     <servers />
   </component>

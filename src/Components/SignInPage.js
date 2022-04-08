@@ -1,14 +1,16 @@
 import React from "react";
 import {useEffect, useState} from "react";
 import '../SignInPage.css'
+import { useNavigate } from 'react-router-dom';
+
 
 
 function SignInPage(props){
+    let navigate = useNavigate()
     const testUser = "Notch"
     const testPassword = "Pickaxe"
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [previousLoginAttempts, setPreviousLoginAttempts] = useState([])
 
     useEffect(()=>{
         console.log("Hello world!")
@@ -20,20 +22,15 @@ function SignInPage(props){
     }
 
     const handlePasswordChange = (e) => {
+        console.log(e.target.value)
         setPassword(e.target.value)
     }
     
     function login(){
         console.log("In Login Function")
-        const newItem = {
-            user: username,
-            pass: password,
-            login_time: Date.now()
-        }
-        setPreviousLoginAttempts(prevState => prevState.concat(newItem))
-        
         if(username === testUser && password === testPassword){
             alert("Login Successful!")
+            navigate('/game')
         }
         else{
             alert("Login failed.")
@@ -45,39 +42,32 @@ function SignInPage(props){
     }
 
     return(
-        <div className={"Login-page"}>
-            <h1>Login Page</h1>
-            {/*<form onSubmit={handleLoginAttempt}>*/}
+            <form onSubmit={login} className={"Login-page"}>
+                <h1>Login Page</h1>
                 <h3>
-                    <label htmlFor="username">
-                        Username:
-                    </label>
-                    <input
-                        id="username"
-                        onChange={handleNameChange}
-                        value={username}
-                    />
+                    <label htmlFor="username">Username:</label><br/>
+                    <input type="text" id="username"
+                           name="username"
+                           value={username}
+                           onChange={handleNameChange}
+                    /><br/>
+                </h3>
+                
+                <h3>
+                    <label htmlFor="password">Password:</label><br/>
+                    <input type="text" id="password"
+                           name="password"
+                           value={password}
+                           onChange={handlePasswordChange}
+
+                    /><br/>
                 </h3>
 
-                <h3>
-                    <label htmlFor="password">
-                        Password:
-                    </label>
-                    <input
-                        id="password"
-                        onChange={handlePasswordChange}
-                        value={password}
-                    />
-                </h3>
+                <input type="submit" value={"Login"} /> <br/>
+                <input type="button" value={"Register"} onClick={register}/>
 
-                <button onClick={login}>
-                    Login
-                </button>
-            <button onClick={register}>
-                Register
-            </button>
-        </div>
-    );
+            </form>
+);
 }
 
 export default SignInPage

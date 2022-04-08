@@ -45,8 +45,8 @@ export default function GamePage() {
 
     function modifyCell(e) {
         //onClick event listener for each cell.
-        let type = e.target.className
-        console.log("Hey world!", e.target)
+        let type = e.target.className 
+        console.log("Div clicked!", e.target)
         if(type === "Cell-alive"){
             type = "Cell-dead"
         }

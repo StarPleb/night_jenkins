@@ -63,6 +63,47 @@ function SignInPage(props){
         xhr.send(data);
     }
 
+    function postState(e){
+        e.preventDefault()
+        // data will contain the name field and the json object
+        let data = `username=${username}&password=${password}`;
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+                if(this.status === 400) {
+                    alert('User exists')
+                }if(this.status === 200) {
+                    alert('User registered')
+                }
+            }
+        });
+        xhr.open("POST", "state");
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(data);
+    }
+
+    function getState(e){
+        e.preventDefault()
+        let data = `username=${username}`;
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+                if(this.status === 400) {
+                    alert('User exists')
+                }if(this.status === 200) {
+                    alert('User registered')
+                }
+            }
+        });
+        xhr.open("POST", "state/update");
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(data);
+    }
+
     return(
             <form onSubmit={login} className={"Login-page"}>
                 <h1>Login Page</h1>
@@ -86,7 +127,7 @@ function SignInPage(props){
                 </h3>
 
                 <input type="submit" value={"Login"} /> <br/>
-                <input type="button" value={"Register"} onClick={register}/>
+                <input type="button" value={"Register"} onClick={getState}/>
 
             </form>
 );

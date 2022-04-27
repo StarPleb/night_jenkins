@@ -79,9 +79,9 @@ function SignInPage(props){
             if (this.readyState === this.DONE) {
                 console.log(this.responseText);
                 if(this.status === 400) {
-                    alert('User exists')
+                    alert('User does not exist')
                 }if(this.status === 200) {
-                    alert('User registered')
+                    alert('User\'s gamestate was saved')
                 }
             }
         });
@@ -99,9 +99,9 @@ function SignInPage(props){
             if (this.readyState === this.DONE) {
                 console.log(this.responseText);
                 if(this.status === 400) {
-                    alert('User exists')
+                    alert('User does not exists')
                 }if(this.status === 200) {
-                    alert('User registered')
+                    alert('User\'s gamestate was retreived')
                 }
             }
         });

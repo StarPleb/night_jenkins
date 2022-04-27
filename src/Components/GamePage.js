@@ -2,9 +2,19 @@ import React, {useEffect, useState} from 'react';
 import '../Styles/GamePage.css'
 import ChatWindow from "./ChatWindow";
 
+class Position {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
 export default function GamePage() {
 
     const [map, setMap] = useState([[]])
+    const temp = new Position(7, 7)
+    const [initialPosition, setInitialPosition] = useState(temp)
+    console.log(initialPosition)
     const [tokens, setTokens] = useState([[]])
     const [rows, setRows] = useState(15)
     const [columns, setColumns] = useState(15)

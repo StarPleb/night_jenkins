@@ -67,7 +67,11 @@ function SignInPage(props){
     function postState(e){
         e.preventDefault()
         // data will contain the name field and the json object
-        let data = `username=${username}&password=${password}`;
+        let data = {
+            "username": username,
+            "token_list": "test123",
+            "background_list": "2131241"
+        };
         const xhr = new XMLHttpRequest();
         xhr.withCredentials = true;
         xhr.addEventListener("readystatechange", function () {
@@ -81,8 +85,8 @@ function SignInPage(props){
             }
         });
         xhr.open("POST", "state");
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send(data);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify(data));
     }
 
     function getState(e){
@@ -100,7 +104,7 @@ function SignInPage(props){
                 }
             }
         });
-        xhr.open("POST", "state/update");
+        xhr.open("POST", "state/retreive");
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(data);
     }

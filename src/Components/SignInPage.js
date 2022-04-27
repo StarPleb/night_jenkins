@@ -49,11 +49,12 @@ function SignInPage(props){
         const xhr = new XMLHttpRequest();
         xhr.withCredentials = true;
         xhr.addEventListener("readystatechange", function () {
+            let temp = this.responseText
             if (this.readyState === this.DONE) {
                 console.log(this.responseText);
-                if(this.status === 400) {
+                if(temp.status === 400) {
                     alert('User exists')
-                }if(this.status === 200) {
+                }if(temp.status === 200) {
                     alert('User registered')
                 }
             }

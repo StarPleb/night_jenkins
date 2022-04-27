@@ -27,13 +27,31 @@
 }
 
 .Grid-view {
+    background-color: red;
     display: flex;
+    flex: 1;
     flex-direction: column;
 }
 
 .Grid-row {
     display: flex;
     flex-direction: row;
+}
+
+.Map-View{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-self: center;
+
+}
+.Token-View{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+      align-self: center;
+
+
 }
 
 .Cell-alive {
@@ -52,6 +70,15 @@
     width: 25px;
     height: 25px;
     background-color: white;
+}
+
+.Token-Cell {
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+    width: 25px;
+    height: 25px;
+    background-color: lawngreen;
 }
 
 .App-link {

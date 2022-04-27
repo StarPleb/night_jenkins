@@ -35,19 +35,41 @@ export default function ChatWindow() {
     
     function commandFunction(input){
         let command = input.slice(1)
-        alert(`command: ${command}`)
-        
         if(command.slice(0,4) === "roll"){
             rollDice(command)
-        }
-        
-        switch (command){
-            
         }
     }
     
     function rollDice(input){
+        console.log(input)
+        /*
+        d4 d6 d8 d10 d12 d20 d100
+         */
+        let allowed_dice = [4, 6, 8, 10, 12, 20, 100]
+        let arr = input.match(/[-+]?[0-9]*\.?[0-9]+/g)
+        let num1 = parseInt(arr[0])
+        let num2 = parseInt(arr[1])
+        let result = 0
         
+        let isLegalDice = false;
+        
+        for(let i = 0; i < allowed_dice.length; i++){
+            if(num2 === allowed_dice[i])
+                isLegalDice = true
+        }
+        if(isLegalDice)
+            result = Math.ceil(Math.random() * (arr[0] * arr[1]))
+        else
+            serverMessage("Illegal di")
+        if(result < 2)
+            result += 1
+        
+        serverMessage(`You rolled ${num1} d${num2}'s and got ${result}!`)
+    }
+    
+    function serverMessage(message){
+        const new_message = new Chat("Server", message)
+        setMessages(messages => [...messages, new_message])
     }
     
     

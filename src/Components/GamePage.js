@@ -14,7 +14,6 @@ export default function GamePage() {
     const [map, setMap] = useState([[]])
     const temp = new Position(7, 7)
     const [initialPosition, setInitialPosition] = useState(temp)
-    console.log(initialPosition)
     const [tokens, setTokens] = useState([[]])
     const [rows, setRows] = useState(15)
     const [columns, setColumns] = useState(15)
@@ -105,12 +104,40 @@ export default function GamePage() {
         
     })
 
+    const tokens_array_mapped = map.map((row, rowIdx)=>{
+        let new_index_array = []
+        return (
+            <div key={rowIdx} className={"Grid-row"}>
+                {row.map((column, colIdx)=>{
+                    let new_index = (rowIdx*rows + colIdx) + rows
+                    new_index_array.push(new_index)
+                    return (
+                        <div className={"Token-Cell"} id={`${new_index}`} key={new_index} onClick={modifyCell}>
+                            <img src={require('../../assets/plague_knight.png')} alt={'../../assets/plague_knight.png'}/>
+                        </div>
+                            
+                    )
+                })}
+            </div>
+        )
+
+    })
+
     return(
         <div className={"Entire-Page"}>
             <div className={"Game-Page"}>
                 <h1>Hello world!</h1>
+                <h4>Clicked Cell: {trackedCell}</h4>
+
+
+
                 <div className={"Grid-view"}>
-                    {map_array_mapped}
+                    <div className={"Map-View"}>
+                        {map_array_mapped}
+                    </div>
+                    <div className={"Token-View"}>
+                        {tokens_array_mapped}
+                    </div>
                 </div>
                 <div>
                     <input type="button" value="See Things" onClick={seeTrackedCell}/>

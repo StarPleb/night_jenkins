@@ -33,19 +33,38 @@ export default function ChatWindow() {
         setUsername(e.target.value)
     }
     
-    
-    function sendMessage(){
-        alert(message)
+    function commandFunction(input){
+        let command = input.slice(1)
+        alert(`command: ${command}`)
+        
+        if(command.slice(0,4) === "roll"){
+            rollDice(command)
+        }
+        
+        switch (command){
+            
+        }
     }
     
-    function addMessage(e){
+    function rollDice(input){
+        
+    }
+    
+    
+    function sendMessage(e){
         e.preventDefault();
         testing_stuff()
         const text_area = document.getElementById("text_area")
         const typed_message = text_area.value
-        const new_message = new Chat(username, typed_message)
-        setMessages(messages => [...messages, new_message])
-        text_area.value = ""
+        let first_char = typed_message.charAt(0)
+        if(first_char === "/"){
+            commandFunction(typed_message)
+        } else{
+            const new_message = new Chat(username, typed_message)
+            setMessages(messages => [...messages, new_message])
+            text_area.value = ""
+        }
+
 
 
 
@@ -80,10 +99,10 @@ export default function ChatWindow() {
                 </div>
             </div>
             <div className={"Action-Box"}>
-                    <form className={"Typing-Portion"} onSubmit={addMessage}>
+                    <form className={"Typing-Portion"} onSubmit={sendMessage}>
                         <h3>
                             <label htmlFor="text_area">Message:</label><br/>
-                            <textarea id="text_area" name="text_area" placeholder={"Message must be < 60 characters."} rows="5" cols="35"/>
+                            <textarea id="text_area" name="text_area" placeholder={"Message must be < 60 characters."} rows="5" cols="30"/>
                         </h3>
                         <input type="submit" value="Send"/>
                     </form>

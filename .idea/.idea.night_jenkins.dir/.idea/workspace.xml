@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="52cf245a-b149-4e58-880b-7acb1d91f6c5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.night_jenkins.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.night_jenkins.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/GamePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/GamePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/ChatWindow.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/ChatWindow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ChatWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ChatWindow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/SignInPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/SignInPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

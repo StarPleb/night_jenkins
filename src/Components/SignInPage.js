@@ -52,6 +52,7 @@ function SignInPage(props){
             let temp = this.responseText
             if (this.readyState === this.DONE) {
                 console.log(this.responseText);
+                let temp = JSON.parse(this.responseText)
                 if(temp.status === 400) {
                     alert('User exists')
                 }if(temp.status === 200) {

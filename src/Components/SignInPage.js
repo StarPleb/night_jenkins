@@ -1,14 +1,16 @@
-import React from "react";
+import React, {useContext} from "react";
 import {useEffect, useState} from "react";
 import '../Styles/SignInPage.css'
 import { useNavigate } from 'react-router-dom';
+import UsernameContext from "../UsernameContext";
 
 
 
 function SignInPage(props){
     let navigate = useNavigate()
-    const [username, setUsername] = useState("")
+    const [username, changeUsername] = useState("")
     const [password, setPassword] = useState("")
+    const {setUsername} = useContext(UsernameContext)
 
     useEffect(()=>{
         console.log("Hello world!")
@@ -16,11 +18,10 @@ function SignInPage(props){
 
 
     const handleNameChange = (e) => {
-        setUsername(e.target.value)
+        changeUsername(e.target.value)
     }
 
     const handlePasswordChange = (e) => {
-        console.log(e.target.value)
         setPassword(e.target.value)
     }
     
@@ -33,8 +34,11 @@ function SignInPage(props){
             if (this.readyState === this.DONE) {
                 console.log(this.responseText);
                 let temp = JSON.parse(this.responseText)
+                setUsername(username)
                 if(temp.status === 200) {
                     navigate('/game')
+                } else{
+                    alert(temp.msg)
                 }
             }
         });
@@ -112,7 +116,7 @@ function SignInPage(props){
 
     return(
             <form onSubmit={login} className={"Login-page"}>
-                <h1>Login Page</h1>
+                <h1>Roll 21</h1>
                 <h3>
                     <label htmlFor="username">Username:</label><br/>
                     <input type="text" id="username"
@@ -133,7 +137,7 @@ function SignInPage(props){
                 </h3>
 
                 <input type="submit" value={"Login"} /> <br/>
-                <input type="button" value={"Register"} onClick={getState}/>
+                <input type="button" value={"Register"} onClick={register}/>
 
             </form>
 );

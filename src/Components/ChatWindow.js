@@ -1,6 +1,7 @@
-﻿import React, {useEffect, useState} from 'react';
+﻿import React, {useContext, useEffect, useState} from 'react';
 import '../Styles/ChatWindow.css'
 import ChatBubble from "./ChatBubble";
+import UsernameContext from "../UsernameContext";
 
 class Chat {
     constructor(sender, message) {
@@ -11,12 +12,12 @@ class Chat {
     }
 }
 
-export default function ChatWindow() {
+export default function ChatWindow(props) {
 
     const [messages, setMessages] = useState([])
-    const [username, setUsername] = useState("Obama")
     const [message, setMessage] = useState("Red is real sus")
-    const [currentPlayer, setCurrentPlayer] = useState("Obama")
+    const {username} = useContext(UsernameContext)
+    const saveChats = props.saveChat
 
     
     
@@ -27,11 +28,39 @@ export default function ChatWindow() {
         const TestChat = new Chat(username, message)
         tempArr.push(TestChat)
         setMessages(tempArr)
-    }, [])
+        
+        return ()=>{
 
-    const handleNameChange = (e) => {
-        setUsername(e.target.value)
+        }
+    }, [])
+    
+    // useEffect(()=>{
+    //    
+    //     return ()=>{
+    //         prepareChat(messages)
+    //             .then((arr)=>{
+    //                 saveChats(arr)
+    //             })
+    //     }
+    // }, [messages])
+    
+    function saveButton(){
+        saveChats(messages)
     }
+    
+    async function prepareChat(){
+        console.log(messages)
+        let arr = []
+        for(const chat in messages){
+            let message = {
+                sender: chat.sender,
+                message: chat.message
+            }
+            arr.push(message)
+        }
+        return arr
+    }
+    
     
     function commandFunction(input){
         let command = input.slice(1)
@@ -100,8 +129,6 @@ export default function ChatWindow() {
     
     function testing_stuff(){
         const element = document.getElementById("Chat-Box")
-        console.log(element)
-        console.log(element.scrollTop)
     }
 
 
@@ -111,12 +138,9 @@ export default function ChatWindow() {
         <div className={"Chat-window"}>
             <h1>Chat</h1>
             <h7>Current User: {username}</h7>
-            <h7>It is {currentPlayer}'s turn.</h7>
+            <h7>It is {username}'s turn.</h7>
             <div className={"Chat-Box"}>
                 <div className={"Scrolling-Window"} id={"Chat-Box"}>
-                    <ChatBubble sender={"Obama"} message={"Hey mom"}/>
-                    <ChatBubble sender={"Trump"} message={"Hey Obama's mom"}/>
-                    <ChatBubble sender={"Obama"} message={"Now that's just rude"}/>
                     {chats_mapped}
                 </div>
             </div>
@@ -127,6 +151,7 @@ export default function ChatWindow() {
                             <textarea id="text_area" name="text_area" placeholder={"Message must be < 60 characters."} rows="5" cols="30"/>
                         </h3>
                         <input type="submit" value="Send"/>
+                        <input type="button" value="Save" onClick={saveButton}/>
                     </form>
             </div>
 

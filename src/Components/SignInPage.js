@@ -68,22 +68,26 @@ function SignInPage(props){
     function postState(e){
         e.preventDefault()
         // data will contain the name field and the json object
-        let data = `username=${username}&password=${password}`;
+        let data = {
+            "username": username,
+            "token_list": "test123",
+            "background_list": "2131241"
+        };
         const xhr = new XMLHttpRequest();
         xhr.withCredentials = true;
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === this.DONE) {
                 console.log(this.responseText);
                 if(this.status === 400) {
-                    alert('User exists')
+                    alert('User does not exist')
                 }if(this.status === 200) {
-                    alert('User registered')
+                    alert('User\'s gamestate was saved')
                 }
             }
         });
         xhr.open("POST", "state");
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send(data);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify(data));
     }
 
     function getState(e){
@@ -95,13 +99,13 @@ function SignInPage(props){
             if (this.readyState === this.DONE) {
                 console.log(this.responseText);
                 if(this.status === 400) {
-                    alert('User exists')
+                    alert('User does not exists')
                 }if(this.status === 200) {
-                    alert('User registered')
+                    alert('User\'s gamestate was retreived')
                 }
             }
         });
-        xhr.open("POST", "state/update");
+        xhr.open("POST", "state/retreive");
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(data);
     }

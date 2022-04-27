@@ -1,0 +1,90 @@
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.Chat-window{
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: thick;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    height: 75vh;
+    width: 300px;
+    
+}
+
+.Chat-Box{
+    /*border-style: solid;*/
+    /*border-color: blue;*/
+    /*border-width: thin;*/
+    background-color: white;
+    display: flex;
+    flex: 2;
+    height: 69px;
+    width: 275px;
+    margin: 5px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.Scrolling-Window{
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+    background-color: white;
+    flex-direction: column;
+    align-self: center;
+    width: 100%;
+    overflow-y: scroll;
+
+}
+
+.Action-Box{
+    /*border-style: solid;*/
+    /*border-color: blue;*/
+    /*border-width: thin;*/
+    background-color: white;
+    display: flex;
+    flex: 1;
+    height: 69px;
+    width: 275px;
+    margin: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+
+.Typing-Portion{
+    background-color: white;
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    flex-direction: column;
+    align-self: flex-start;
+    border-style: dashed;
+    border-color: black;
+    border-width: thick;
+}
+
+.Action-Row{
+    background-color: white;
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    flex-direction: column;
+    align-self: flex-start;
+    border-style: dashed;
+    border-color: black;
+    border-width: thick;
+}

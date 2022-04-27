@@ -7,8 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 function SignInPage(props){
     let navigate = useNavigate()
-    const testUser = "Notch"
-    const testPassword = "Pickaxe"
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -26,19 +24,43 @@ function SignInPage(props){
         setPassword(e.target.value)
     }
     
-    function login(){
-        console.log("In Login Function")
-        if(username === testUser && password === testPassword){
-            alert("Login Successful!")
-            navigate('/game')
-        }
-        else{
-            alert("Login failed.")
-        }
+    function login(e){
+        e.preventDefault()
+        let data = `username=${username}&password=${password}`;
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+                let temp = JSON.parse(this.responseText)
+                if(temp.status === 200) {
+                    navigate('/game')
+                }
+            }
+        });
+        xhr.open("POST", "auth/login");
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(data);
     }
 
-    function register(){
-        alert("Not implemented yet.")
+    function register(e){
+        e.preventDefault()
+        let data = `username=${username}&password=${password}`;
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+                if(temp.status === 400) {
+                    alert('User exists')
+                }if(temp.status === 200) {
+                    alert('User registered')
+                }
+            }
+        });
+        xhr.open("POST", "auth/register");
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(data);
     }
 
     return(

@@ -51,9 +51,9 @@ function SignInPage(props){
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === this.DONE) {
                 console.log(this.responseText);
-                if(temp.status === 400) {
+                if(this.status === 400) {
                     alert('User exists')
-                }if(temp.status === 200) {
+                }if(this.status === 200) {
                     alert('User registered')
                 }
             }

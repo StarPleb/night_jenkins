@@ -117,6 +117,12 @@ function SignInPage(props){
     return(
             <form onSubmit={login} className={"Login-page"}>
                 <h1>Roll 21</h1>
+                <img src={require('../assets/logo.png')}
+                     alt={'../assets/plague_knight.png'}
+                     width={400}
+                     height={350}
+                     id={`logo`}
+                />
                 <h3>
                     <label htmlFor="username">Username:</label><br/>
                     <input type="text" id="username"

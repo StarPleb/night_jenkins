@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52cf245a-b149-4e58-880b-7acb1d91f6c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/UsernameContext.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/1651077791265_Forest-Frost-Encounter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/tokens/1651025746250_dwarf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/tokens/1651025752098_elf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/tokens/1651025754227_halfling.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/tokens/1651025757046_human.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/tokens/blue_token.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/tokens/green_token.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/tokens/red_token.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/tokens/yellow_token.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/databaseController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.night_jenkins.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.night_jenkins.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/plague_knight.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/plague_knight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ChatWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ChatWindow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/GamePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/GamePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/SignInPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/SignInPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/GamePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/GamePage.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +57,7 @@
       <workItem from="1649436694105" duration="4747000" />
       <workItem from="1651001070472" duration="14461000" />
       <workItem from="1651027286146" duration="3569000" />
-      <workItem from="1651087564793" duration="8327000" />
+      <workItem from="1651087564793" duration="9873000" />
     </task>
     <servers />
   </component>

@@ -36,10 +36,6 @@ export default function GamePage() {
         }
     }, [])
     
-    function setGame(){
-        let game_state = getState(username)
-        console.log(game_state)
-    }
     
     function saveGame(chats){
         console.log(chats)
@@ -48,8 +44,6 @@ export default function GamePage() {
             username: username,
             ...chats
         }
-        
-        
         console.log(game_state)
         postState(game_state)
     }
@@ -231,9 +225,7 @@ export default function GamePage() {
 
                     
                 </div>
-                <div>
-                    <input type="button" value="See Things" onClick={seeTrackedCell}/>
-                </div>
+
             </div>
             
             <ChatWindow saveChat={saveGame}/>
